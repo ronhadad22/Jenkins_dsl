@@ -3,7 +3,7 @@
  */
 
 println "Hello World "
-
+call() 
 def call() {
     String repositoryName = env.JOB_NAME.split('/')[1]
     String rootFolderPath = "CCV/$repositoryName"
