@@ -2,8 +2,9 @@
  * The step entry point.
  */
 
-println "Hello World "
-call() 
+println "ron1 "
+monorepo.call() 
+println "ron2 "
 def call() {
     String repositoryName = env.JOB_NAME.split('/')[1]
     String rootFolderPath = "CCV/$repositoryName"
