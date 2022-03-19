@@ -1,6 +1,9 @@
 /**
  * The step entry point.
  */
+
+println "Hello World ${rootFolderPath}"
+
 def call() {
     String repositoryName = env.JOB_NAME.split('/')[1]
     String rootFolderPath = "CCV/$repositoryName"
