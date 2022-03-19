@@ -2,7 +2,7 @@
  * The step entry point.
  */
 
-println "Hello World ${rootFolderPath}"
+println "Hello World "
 
 def call() {
     String repositoryName = env.JOB_NAME.split('/')[1]
