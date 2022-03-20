@@ -135,6 +135,10 @@ def generateMultibranchPipelines(List<Path> jenkinsfilePaths, Path rootFolder, S
 
 // `jenkinsfilePathsStr` and `rootFolderStr` are global variables that are set through `jobDsl`'s `additionalParameters`
 // options.
+String repositoryName = env.JOB_NAME.split('/')[1]
+String rootFolderPath = "Generated/$repositoryName"
+
+List<String> jenkinsfilePaths = provisionItems(rootFolderPath, env.GIT_URL)
 List<Path> jenkinsfilePaths = jenkinsfilePathsStr.collect { Paths.get(it) }
 Path rootFolder = Paths.get(rootFolderStr)
 
