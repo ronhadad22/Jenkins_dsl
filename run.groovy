@@ -133,17 +133,6 @@ def generateMultibranchPipelines(List<Path> jenkinsfilePaths, Path rootFolder, S
     }
 }
 
-// `jenkinsfilePathsStr` and `rootFolderStr` are global variables that are set through `jobDsl`'s `additionalParameters`
-// options.
-String repositoryName = env.JOB_NAME.split('/')[1]
-String rootFolderPath = "Generated/$repositoryName"
-
-List<String> jenkinsfilePaths = provisionItems(rootFolderPath, env.GIT_URL)
-List<Path> jenkinsfilePaths = jenkinsfilePathsStr.collect { Paths.get(it) }
-Path rootFolder = Paths.get(rootFolderStr)
-
-generateFolders(jenkinsfilePaths, rootFolder)
-generateMultibranchPipelines(jenkinsfilePaths, rootFolder, repositoryURL)
 
 
  /**
@@ -155,7 +144,7 @@ generateMultibranchPipelines(jenkinsfilePaths, rootFolder, repositoryURL)
 List<String> provisionItems(String rootFolderPath, String repositoryURL) {
     // Find all Jenkinsfiles.
     List<String> jenkinsfilePaths = findFiles(glob: '**/*/Jenkinsfile').collect { it.path }
-
+    println "hello ron2"
     // Provision folder and Multibranch Pipelines.
     jobDsl(
             scriptText: libraryResource('multiPipelines.groovy'),
@@ -171,3 +160,16 @@ List<String> provisionItems(String rootFolderPath, String repositoryURL) {
 
     return jenkinsfilePaths
 }
+
+// `jenkinsfilePathsStr` and `rootFolderStr` are global variables that are set through `jobDsl`'s `additionalParameters`
+// options.
+String repositoryName = env.JOB_NAME.split('/')[1]
+String rootFolderPath = "Generated/$repositoryName"
+println "hello ron"
+List<String> jenkinsfilePaths = provisionItems(rootFolderPath, env.GIT_URL)
+List<Path> jenkinsfilePaths = jenkinsfilePathsStr.collect { Paths.get(it) }
+Path rootFolder = Paths.get(rootFolderStr)
+
+generateFolders(jenkinsfilePaths, rootFolder)
+generateMultibranchPipelines(jenkinsfilePaths, rootFolder, repositoryURL)
+
