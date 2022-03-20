@@ -167,7 +167,7 @@ String repositoryName = env.JOB_NAME.split('/')[1]
 String rootFolderPath = "Generated/$repositoryName"
 println "hello ron"
 List<String> jenkinsfilePaths = provisionItems(rootFolderPath, env.GIT_URL)
-List<Path> jenkinsfilePaths = jenkinsfilePathsStr.collect { Paths.get(it) }
+//List<Path> jenkinsfilePaths = jenkinsfilePathsStr.collect { Paths.get(it) }
 Path rootFolder = Paths.get(rootFolderStr)
 
 generateFolders(jenkinsfilePaths, rootFolder)
