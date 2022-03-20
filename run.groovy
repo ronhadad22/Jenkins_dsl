@@ -164,10 +164,11 @@ List<String> provisionItems(String rootFolderPath, String repositoryURL) {
 
 // `jenkinsfilePathsStr` and `rootFolderStr` are global variables that are set through `jobDsl`'s `additionalParameters`
 // options.
-String repositoryName = env.JOB_NAME.split('/')[1]
-String rootFolderPath = "Generated/$repositoryName"
+//String repositoryName = env.JOB_NAME.split('/')[1]
+
+String rootFolderPath = "CCV/hw1"
 println "hello ron"
-List<String> jenkinsfilePaths = provisionItems(rootFolderPath, env.GIT_URL)
+List<String> jenkinsfilePaths = provisionItems(rootFolderPath, "https://github.com/ronhadad22/CCV.git")
 //List<Path> jenkinsfilePaths = jenkinsfilePathsStr.collect { Paths.get(it) }
 Path rootFolder = Paths.get(rootFolderStr)
 
