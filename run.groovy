@@ -1,7 +1,9 @@
 import groovy.transform.SourceURI
 import java.nio.file.Path
 import java.nio.file.Paths
+import groovy.transform.Field
 
+@Field
 
 /**
  * Get all ancestor folders paths.
